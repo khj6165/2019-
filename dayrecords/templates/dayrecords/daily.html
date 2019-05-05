@@ -1,0 +1,21 @@
+{% load static %}
+<style>
+.align-center{
+  text-align: center;
+  padding-top: 250px;
+}
+</style>
+<div style="background-image: url({% static "/img/diary.jpg"%}); height: 700px; width: 1000px">
+<div class = "align-center">
+<form action="{% url 'daily' %}" method="POST">
+    {% csrf_token %}
+    <h2>오늘의 일기</h2>
+    <label>제목</label><br>
+    <input type="text" name="title"><br><br>
+    
+    <label>내용</label><br>
+    <textarea name="content" style="width: 200px; height: 200px;"></textarea><br><br>
+    <input type="submit" value="작성"/>
+</form>
+</div>
+</div>
